@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Ask Holy Quran{% endblock %}
+
+{% block styles %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1>Ask Holy Quran</h1>
+    <form method="post">
+      <textarea name="query" placeholder="Enter your question"></textarea>
+      <button type="submit">Ask</button>
+    </form>
+    {% if result %}
+      <div class="response">
+        {{ result }}
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}
